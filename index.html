@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Paws – All About Dogs</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="nav">
+    <a href="#" class="logo">🐾 Happy Paws</a>
+    <nav>
+      <a href="#breeds">Breeds</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#care">Care Tips</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Dogs make life <span>better</span>.</h1>
+      <p>Discover breeds, see adorable photos, and learn how to keep your best friend happy and healthy.</p>
+      <a href="#gallery" class="btn">Meet a random dog 🐶</a>
+    </div>
+    <img id="heroImg" src="https://images.dog.ceo/breeds/retriever-golden/n02099601_1024.jpg" alt="A happy dog">
+  </section>
+
+  <section id="breeds" class="section">
+    <h2>Popular Breeds</h2>
+    <div class="cards" id="breedCards"></div>
+  </section>
+
+  <section id="gallery" class="section alt">
+    <h2>Random Dog Gallery</h2>
+    <p class="sub">Click the button for a fresh batch of good boys and girls.</p>
+    <button id="loadDogs" class="btn">Show me more dogs 🦴</button>
+    <div class="gallery" id="gallery"></div>
+  </section>
+
+  <section id="care" class="section">
+    <h2>Dog Care Tips</h2>
+    <div class="tips">
+      <div class="tip"><span>🥩</span><h3>Good Food</h3><p>Feed balanced, age-appropriate meals and always keep fresh water available.</p></div>
+      <div class="tip"><span>🏃</span><h3>Daily Exercise</h3><p>Walks and play keep dogs fit, calm, and mentally sharp.</p></div>
+      <div class="tip"><span>🩺</span><h3>Vet Visits</h3><p>Regular check-ups and vaccinations prevent many health problems.</p></div>
+      <div class="tip"><span>❤️</span><h3>Love &amp; Training</h3><p>Positive reinforcement builds trust and good behavior.</p></div>
+    </div>
+  </section>
+
+  <section id="contact" class="section alt">
+    <h2>Dog Fact of the Day</h2>
+    <p id="fact" class="fact"></p>
+    <button id="newFact" class="btn">Another fact</button>
+  </section>
+
+  <footer>Made with ❤️ for dog lovers · © <span id="year"></span> Happy Paws</footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
