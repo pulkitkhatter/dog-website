@@ -1,13 +1,26 @@
 const API = "https://dog.ceo/api";
 
 const breeds = [
-  { name: "Golden Retriever", path: "retriever/golden", desc: "Friendly, intelligent and great with families." },
-  { name: "German Shepherd", path: "germanshepherd", desc: "Loyal, brave and highly trainable." },
-  { name: "Labrador", path: "labrador", desc: "Outgoing, playful and always eager to please." },
-  { name: "Husky", path: "husky", desc: "Energetic, striking and loves the cold." },
-  { name: "Pug", path: "pug", desc: "Small, charming and full of personality." },
-  { name: "Beagle", path: "beagle", desc: "Curious, merry and has an amazing nose." },
+  { name: "Golden Retriever", path: "retriever/golden", desc: "Friendly, intelligent and great with families.", tag: "Family" },
+  { name: "German Shepherd", path: "germanshepherd", desc: "Loyal, brave and highly trainable.", tag: "Guardian" },
+  { name: "Labrador", path: "labrador", desc: "Outgoing, playful and always eager to please.", tag: "Playful" },
+  { name: "Husky", path: "husky", desc: "Energetic, striking and loves the cold.", tag: "Energetic" },
+  { name: "Pug", path: "pug", desc: "Small, charming and full of personality.", tag: "Cuddly" },
+  { name: "Beagle", path: "beagle", desc: "Curious, merry and has an amazing nose.", tag: "Curious" },
+  { name: "French Bulldog", path: "bulldog/french", desc: "Easygoing city dog with bat-like ears.", tag: "Apartment" },
+  { name: "Poodle", path: "poodle/standard", desc: "Smart, elegant and hypoallergenic coat.", tag: "Genius" },
+  { name: "Rottweiler", path: "rottweiler", desc: "Powerful, confident and devoted protector.", tag: "Strong" },
+  { name: "Dachshund", path: "dachshund", desc: "Long, bold and lovably stubborn.", tag: "Bold" },
+  { name: "Corgi", path: "corgi/cardigan", desc: "Short legs, big heart, endless cheer.", tag: "Cheerful" },
+  { name: "Chihuahua", path: "chihuahua", desc: "Tiny dog with a giant personality.", tag: "Tiny" },
+  { name: "Shih Tzu", path: "shihtzu", desc: "Sweet, affectionate lap companion.", tag: "Lap dog" },
+  { name: "Boxer", path: "boxer", desc: "Fun-loving, athletic and goofy.", tag: "Sporty" },
+  { name: "Doberman", path: "doberman", desc: "Sleek, alert and fiercely loyal.", tag: "Alert" },
+  { name: "Samoyed", path: "samoyed", desc: "Fluffy white cloud with a permanent smile.", tag: "Fluffy" },
+  { name: "Pomeranian", path: "pomeranian", desc: "A fluffy little fox-faced ball of energy.", tag: "Fluffy" },
+  { name: "Akita", path: "akita", desc: "Dignified, courageous and deeply loyal.", tag: "Noble" },
 ];
+const colors = ["#ff6b6b", "#feca57", "#1dd1a1", "#54a0ff", "#5f27cd", "#ff9ff3", "#ff9f43", "#00d2d3"];
 
 const facts = [
   "A dog's sense of smell is up to 100,000 times stronger than ours.",
@@ -28,13 +41,14 @@ async function getImage(path) {
 
 async function loadBreeds() {
   const box = document.getElementById("breedCards");
-  for (const b of breeds) {
+  breeds.forEach((b, i) => {
     const card = document.createElement("div");
     card.className = "card";
-    card.innerHTML = `<img alt="${b.name}"><div><h3>${b.name}</h3><p>${b.desc}</p></div>`;
+    card.innerHTML = `<img alt="${b.name}"><div><span class="tag">${b.tag}</span><h3>${b.name}</h3><p>${b.desc}</p></div>`;
     box.appendChild(card);
+    card.style.setProperty("--c", colors[i % colors.length]);
     getImage(b.path).then(url => { if (url) card.querySelector("img").src = url; });
-  }
+  });
 }
 
 async function loadGallery() {
